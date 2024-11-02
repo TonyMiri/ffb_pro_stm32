@@ -41,10 +41,10 @@ Src/gpio.c \
 Src/dma.c \
 Src/tim.c \
 Src/usart.c \
+Src/usbd_hid.c \
 Src/stm32f4xx_it.c \
 Src/stm32f4xx_hal_msp.c \
 Src/stm32-ffb-pro.c \
-Src/usbd_force_feedback_desc.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c \
@@ -73,7 +73,6 @@ Src/usbd_desc.c \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c \
-Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.c
 
 # ASM sources
 ASM_SOURCES =  \

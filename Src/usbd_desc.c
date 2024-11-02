@@ -44,13 +44,13 @@
  */
 
 // Use a VID/PID combination that won't conflict with commercial devices
-#define USBD_VID                    0x0483  // STMicroelectronics VID 
-#define USBD_PID_FS                0x5740  // Unique PID for this project
+#define USBD_VID                    0x045E  // Microsoft VID
+#define USBD_PID_FS                0x001B  // Sidewinder Force Feedback Pro PID
 #define USBD_LANGID_STRING         0x0409  // English (US)
-#define USBD_MANUFACTURER_STRING   "DIY FFB Project"  
-#define USBD_PRODUCT_STRING_FS     "GamePort FFB Joystick"
-#define USBD_CONFIGURATION_STRING_FS "HID Config"
-#define USBD_INTERFACE_STRING_FS "HID Interface"
+#define USBD_MANUFACTURER_STRING   "Microsoft"  
+#define USBD_PRODUCT_STRING_FS     "Sidewinder Force Feedback Pro"
+#define USBD_CONFIGURATION_STRING_FS "FFB Config"
+#define USBD_INTERFACE_STRING_FS "FFB Interface"
 
 #define USB_SIZ_BOS_DESC 0x0C
 
@@ -118,29 +118,24 @@ USBD_DescriptorsTypeDef FS_Desc =
 #endif
 /** USB standard device descriptor. */
 __ALIGN_BEGIN uint8_t USBD_FS_DeviceDesc[USB_LEN_DEV_DESC] __ALIGN_END =
-    {
-        0x12,
-        USB_DESC_TYPE_DEVICE,
-#if (USBD_LPM_ENABLED == 1)
-        0x01,
-#else
-        0x00,
-#endif
-        0x02,
-        0x00,
-        0x00,
-        0x00,
-        USB_MAX_EP0_SIZE,
-        LOBYTE(USBD_VID),
-        HIBYTE(USBD_VID),
-        LOBYTE(USBD_PID_FS),
-        HIBYTE(USBD_PID_FS),
-        0x00,
-        0x02,
-        USBD_IDX_MFC_STR,
-        USBD_IDX_PRODUCT_STR,
-        USBD_IDX_SERIAL_STR,
-        USBD_MAX_NUM_CONFIGURATION};
+{
+    0x12,                       // bLength
+    USB_DESC_TYPE_DEVICE,       // bDescriptorType
+    0x00, 0x02,                // bcdUSB = 2.00
+    0x00,                       // bDeviceClass (use class code in the interface descriptors)
+    0x00,                       // bDeviceSubClass
+    0x00,                       // bDeviceProtocol
+    USB_MAX_EP0_SIZE,          // bMaxPacketSize
+    LOBYTE(USBD_VID),          // idVendor
+    HIBYTE(USBD_VID),          // idVendor
+    LOBYTE(USBD_PID_FS),       // idProduct
+    HIBYTE(USBD_PID_FS),       // idProduct
+    0x00, 0x02,                // bcdDevice = 2.00
+    USBD_IDX_MFC_STR,          // Index of manufacturer string
+    USBD_IDX_PRODUCT_STR,      // Index of product string
+    USBD_IDX_SERIAL_STR,       // Index of serial number string
+    USBD_MAX_NUM_CONFIGURATION  // bNumConfigurations
+};
 
 /** BOS descriptor. */
 #if (USBD_LPM_ENABLED == 1)

@@ -1,5 +1,4 @@
-build/usbd_hid.o: \
- Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.c \
+build/usbd_hid.o: Src/usbd_hid.c \
  Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc/usbd_hid.h \
  Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
